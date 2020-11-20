@@ -1,0 +1,359 @@
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url("/murray-mania-logos.jpg");
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+  color: #e56b6f;
+}
+
+input[type="text"] {
+  width: 15em;
+}
+
+input[type="password"] {
+  width: 15em;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  align-items: center;
+  overflow: auto;
+  background-color: #355070;
+  height: 15%;
+}
+
+.navbar button {
+  background-color: white;
+  color: #e56b6f;
+}
+
+.navbar button:hover {
+  transform: scale(1.1);
+}
+
+.navbar button:active {
+  background-color: white;
+}
+
+.navbar a {
+  color: #212529;
+}
+
+.navbar img:hover {
+  transform: scale(1.2);
+}
+
+.navbar img:active {
+  filter: invert(1);
+}
+
+.selected {
+  color: #e56b6f;
+}
+
+#authform-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#authform {
+  background-color: #e56b6f;
+  width: 30%;
+  color: white;
+  font-weight: bold;
+}
+
+#authform button {
+  background-color: white;
+  color: #e56b6f;
+}
+
+.viewallsidebar {
+  background-color: #e56b6f;
+}
+
+.gameview {
+  background-color: #eaac8b;
+  width: 50%;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.home-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.home-container img {
+  transform-origin: 50% 50%;
+  animation: 3s rotateRight infinite linear;
+}
+
+@keyframes rotateRight {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.home-container img:active {
+  filter: invert(1);
+}
+
+.home-container:hover {
+  transform: scale(1.1);
+}
+
+.home-text {
+  z-index: 3;
+  position: absolute;
+  color: #e56b6f;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5%;
+}
+
+.home-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.home-text:hover {
+  background-color: rgba(28, 27, 27, 0.7);
+}
+
+.auth {
+  display: flex;
+}
+
+.viewallcontainer {
+  display: flex;
+  width: 100%;
+}
+
+.viewallsidebar {
+  display: block;
+  width: calc(0.25 * (100vw - 44px));
+  margin: 30px;
+  min-width: 247px;
+  max-width: 372px;
+  border-right: 2px solid black;
+}
+
+.submit-button {
+  background-color: #b5838d;
+  color: #212529;
+  text-shadow: none;
+  font-size: 1rem;
+  margin: 0 0.25em 1rem 0;
+  padding: 0.8em 1.5em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 0.3rem;
+  display: block;
+  width: 100%;
+}
+
+button {
+  border-radius: 20%;
+  background-color: #355070;
+  color: white;
+  border: none;
+  text-shadow: none;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 0.25em 1rem 0;
+  padding: 0.8em 1.5em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  opacity: 0.7;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: white;
+}
+
+button > img {
+  width: 2em;
+  height: 2em;
+}
+
+img {
+  max-height: 400px;
+  max-width: 400px;
+}
+
+.gameimg:hover {
+  transform: scale(1.1);
+}
+
+.gameimg:active {
+  filter: invert(1);
+}
+
+.hometext {
+  outline: 2px solid black;
+}
+
+.container {
+  flex: 1;
+}
+
+.footer {
+  background-color: #355070;
+  line-height: 1.5;
+  padding: 1.25rem 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer input[type="email"] {
+  border: 0;
+  padding: 0.625rem;
+  margin-top: 0.3125rem;
+}
+
+.footer input[type="submit"] {
+  background-color: #e56b6f;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  padding: 0.625rem 0.9375rem;
+  margin-top: 0.3125rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #e56b6f;
+}
+
+.footer img {
+  width: 5rem;
+  height: 5rem;
+  filter: invert(1);
+}
+
+.footer img:hover {
+  transform: scale(1.1);
+}
+
+.footer img:active {
+  filter: invert(0);
+}
+
+.footerTitle {
+  font-size: 1.375rem;
+  padding-bottom: 0.625rem;
+  font-weight: bold;
+  color: #e56b6f;
+}
+
+.footerColumn {
+  padding: 1.25rem;
+  min-width: 12.5rem;
+}
+
+.footerSocial {
+  padding: 0 1.875rem 1.25rem;
+  width: 100%;
+}
+
+.footerSocialList {
+  display: flex;
+  justify-content: center;
+  border-top: 1px #777 solid;
+  padding-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footerSocialList li {
+  margin: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.footerCopyright {
+  padding: 0.9375rem 1.875rem;
+  background-color: white;
+  color: #355070;
+  width: 100%;
+}
+
+.footerCopyrightList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footerCopyrightList li {
+  margin: 0.125rem 0.625rem;
+}
+
+/* one before the last child */
+.footerCopyrightList li:nth-last-child(2) {
+  flex: 1;
+}
+
+.logo {
+  height: 10vh;
+}
+/* Google Button */
+
+#google-button-div {
+  margin: 0 auto;
+}
+
+.googleButton {
+  background: #4285f4;
+  color: white;
+  border: none;
+  width: 3em;
+  height: em;
+  border-radius: 3%;
+  display: inline-block;
+  align-content: center;
+}
+
+.googleImage {
+  width: 1em;
+  background: white;
+  border-radius: 50%;
+}
