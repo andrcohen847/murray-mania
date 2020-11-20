@@ -7,6 +7,7 @@ class GroundHogHome extends React.Component {
     return (
       <div className="gameParent">
         <GroundHogInstructions />
+        <GroundHogGame />
       </div>
     );
   }
