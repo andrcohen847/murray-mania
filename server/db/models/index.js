@@ -1,6 +1,10 @@
 const User = require("./user");
-const HighScore = require("./high-score");
+const Score = require("./score");
 const Game = require("./game");
+const Like = require("./like");
+const Post = require("./post");
+const Topic = require("./topic");
+const Reply = require("./reply");
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -16,17 +20,44 @@ const Game = require("./game");
  * instead of: const User = require('../db/models/user')
  */
 
-User.hasOne(HighScore);
+User.hasMany(Score);
 User.belongsTo(Game);
+User.hasMany(Topic)
+User.hasMany(Post)
+User.hasMany(Reply)
+User.hasMany(Like)
 
 Game.hasMany(User);
-Game.hasOne(HighScore);
+Game.hasMany(Score);
 
-HighScore.belongsTo(Game);
-HighScore.belongsTo(User);
+Score.belongsTo(Game);
+Score.belongsTo(User);
+
+Topic.belongsTo(User);
+Topic.hasMany(Post);
+
+Post.belongsTo(User)
+Post.belongsTo(Topic)
+Post.hasMany(Reply)
+Post.hasMany(Like)
+
+Reply.belongsTo(User)
+Reply.belongsTo(Post)
+Reply.hasMany(Reply)
+Reply.hasMany(Like)
+
+Like.belongsTo(User)
+Like.belongsTo(Post)
+Like.belongsTo(Reply)
+
+
 
 module.exports = {
   User,
   Game,
-  HighScore
+  Score,
+  Like,
+  Post,
+  Topic,
+  Reply,
 };

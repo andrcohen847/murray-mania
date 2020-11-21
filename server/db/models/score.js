@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const HighScore = db.define("high score", {
+const Score = db.define("score", {
   score: {
     type: Sequelize.INTEGER
   }
 });
 
-module.exports = HighScore;
+module.exports = Score;

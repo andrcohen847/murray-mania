@@ -142,6 +142,42 @@ input[type="password"] {
   display: flex;
 }
 
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  background-color: #eaac8b;
+  color: white;
+}
+
+.user-profile img {
+  height: 20rem;
+  width: 20rem;
+}
+
+.user-profile h1 {
+  color: #e56b6f;
+}
+
+.user-profile h2 {
+  color: #e56b6f;
+}
+
+.user-profile span {
+  color: white;
+}
+
+.user-profile label {
+  color: #e56b6f;
+}
+
+.user-profile button {
+  background-color: white;
+  color: #e56b6f;
+}
+
 .viewallcontainer {
   display: flex;
   width: 100%;
@@ -154,6 +190,13 @@ input[type="password"] {
   min-width: 247px;
   max-width: 372px;
   border-right: 2px solid black;
+}
+
+.gamecontainer {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top:0;
 }
 
 .submit-button {

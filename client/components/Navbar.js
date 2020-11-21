@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 import { logout } from "../store";
 // import Cart from './cart'
 
-const NavbarComp = ({ handleClick, isLoggedIn }) => {
+const NavbarComp = ({ handleClick, isLoggedIn, id }) => {
   return (
     <div className="navbar">
       <Link to="/home">
@@ -20,6 +20,9 @@ const NavbarComp = ({ handleClick, isLoggedIn }) => {
               <NavLink to="/games" activeClassName="selected">
                 <button>Games</button>
               </NavLink>
+              <NavLink to={`/userprofile/${id}`} activeClassName="selected">
+                <button>Edit Profile</button>
+              </NavLink>
             </div>
           ) : (
             <div>
@@ -30,9 +33,9 @@ const NavbarComp = ({ handleClick, isLoggedIn }) => {
               <NavLink to="/signup" activeClassName="selected">
                 <button>Signup</button>
               </NavLink>
-              <Link to="/games">
+              <NavLink to="/games">
                 <button>Games</button>
-              </Link>
+              </NavLink>
             </div>
           )}
         </nav>
@@ -42,7 +45,8 @@ const NavbarComp = ({ handleClick, isLoggedIn }) => {
 };
 
 const mapState = state => ({
-  isLoggedIn: !!state.user.id
+  isLoggedIn: !!state.user.id,
+  id: state.user.id
 });
 
 const mapDispatch = dispatch => ({
@@ -58,5 +62,6 @@ export default connect(mapState, mapDispatch)(NavbarComp);
  */
 NavbarComp.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  id: PropTypes.number
 };

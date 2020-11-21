@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 export function preload() {
-  this.load.image("sky", "assets/snow.png");
+  this.load.image("sky", "assets/sky.png");
   this.load.image("ground", "assets/ice.png");
   this.load.image("groundhog", "assets/ghog.png");
   this.load.image("ghost", "assets/slimer.png");

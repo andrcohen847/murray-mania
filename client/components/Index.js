@@ -8,3 +8,5 @@ export { default as Home } from "./Home";
 export { default as Footer } from "./Footer";
 export { Login, Signup } from "./AuthForm";
 export { default as Games } from "./Games";
+export { default as MessageBoard } from "./MessageBoard"
+export {default as UserProfile} from "./UserProfile"

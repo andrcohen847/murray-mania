@@ -27,10 +27,18 @@ const User = db.define("user", {
   googleId: {
     type: Sequelize.STRING
   },
+  userName: {
+    type: Sequelize.STRING,
+    defaultValue: "Annonymous"
+  },
   isAdmin: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
-  }
+  },
+  imageUrl: {
+    type: Sequelize.TEXT,
+    defaultValue: 'https://cdn.shopify.com/s/files/1/0077/5851/2185/products/Zissou_square_1000x.jpg?v=1587841809'
+  },
 });
 
 module.exports = User;

@@ -1,9 +1,8 @@
 import React from "react";
 import Phaser from "phaser";
-import { preload, create, update } from "./phaser/LevelOne.js";
-import GroundHogHome from "./GroundhogHome";
+import { preload, create, update } from "../phaser/GroundHogLevelOne.js";
 
-class Game extends React.Component {
+class GroundHogGame extends React.Component {
   constructor() {
     super();
   }
@@ -33,11 +32,11 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="mainGameView" />
+      <div className = "gamecontainer">
+        <div className="maingameview"></div>
       </div>
     );
   }
 }
 
-export default GroundHogHome;
+export default GroundHogGame;
