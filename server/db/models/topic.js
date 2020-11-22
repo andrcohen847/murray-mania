@@ -8,7 +8,11 @@ const Topic = db.define("topic", {
     validate: {
       notEmpty: true
     }
-  }
+  },
+  featured: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
 });
 
 module.exports = Topic;

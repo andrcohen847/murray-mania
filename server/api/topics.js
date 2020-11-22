@@ -10,7 +10,7 @@ module.exports = router;
 router.get('/', async (req, res, next) => {
   try {
     const topics = await Topic.findAll({
-      include: [Post]
+      include: [User, Post]
     })
     res.json(topics)
   } catch (err) {
@@ -22,11 +22,21 @@ router.get('/', async (req, res, next) => {
 router.get('/:topicId', async (req, res, next) => {
   try {
     const topic = await Topic.findByPk(req.params.topicId,  {
-      include: [Post]
+      include: [User, Post]
     })
     res.json(topic)
   } catch (error) {
     next(error)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const topic = await Topic.create(req.body)
+    res.status(201).json(topic)
+  } catch (err) {
+    console.error(err)
+    next(err)
   }
 })
 

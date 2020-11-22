@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 
-const Footer = () => {
+const Footer = (props) => {
+  const { userId } = props;
+
   return (
     <div className="footer">
       <div className="footerColumn">
@@ -29,7 +33,7 @@ const Footer = () => {
             <a href="#">Contact Us</a>
           </li>
           <li>
-          <Link to="/messageboard">
+          <Link to={{pathname: '/messageboard', state: {userId}}}>
             Message Board
           </Link>
           </li>
@@ -90,4 +94,12 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+const mapState = state => ({
+  userId: state.user.id
+});
+
+export default connect(mapState)(Footer);
+
+Footer.propTypes = {
+  userId: PropTypes.number
+};

@@ -4,6 +4,9 @@ const isAdminUser = require("./middleware/is-admin-user");
 
 router.use("/users", require("./users"));
 router.use("/topics", require("./topics"));
+router.use("/posts", require("./posts"));
+router.use("/replies", require("./replies"));
+
 
 router.use(isAdminUser);
 

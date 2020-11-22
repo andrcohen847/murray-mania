@@ -1,22 +1,20 @@
 import React from 'react'
-import { addTopic } from '../store'
+import { addTopic, me, fetchAllTopics } from '../store'
 import { connect } from 'react-redux'
 
-export class NewCampusForm extends React.Component {
+export class NewTopicForm extends React.Component {
   constructor () {
     super()
     this.state = {
       name: '',
-      userId: '',
-      posts: [{
-        name: '',
-        description: '',
-        userId: '',
-        topicId: '',
-      }]
+      userId: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.loadUser()
   }
 
   handleChange(event) {
@@ -28,20 +26,16 @@ export class NewCampusForm extends React.Component {
     event.preventDefault()
     this.props.addNewTopic({
       name: this.state.name,
-      userId: this.props.userId,
-      posts: [{
-        name: this.state.props.name,
-        description: this.state.props.description,
-      }]
+      userId: this.props.user.id,
+      posts: []
     })
+
+    this.props.fetchAllTopics()
 
     this.setState({
       name: '',
       userId: '',
-      posts: [{
-        name: '',
-        description: '',
-      }]
+      posts: []
     })
 }
 
@@ -52,26 +46,23 @@ export class NewCampusForm extends React.Component {
           Topic Name:
           <input onChange={this.handleChange} value={this.state.name} name="name" type="text" required />
         </label>
-        <label htmlFor="post-name">
-          Post Name:
-          <input onChange={this.handleChange} value={this.state.posts} name="address" type="text" required />
-        </label>
-        <label htmlFor="description">
-          Description:
-          <input onChange={this.handleChange} value={this.state.description} name="description" type="text" required />
-        </label>
-        <label htmlFor="imageUrl">
-          Campus Image Url:
-          <input onChange={this.handleChange} value={this.state.imageUrl} name="imageUrl" type="text" />
-        </label>
         <button className="submit" type="submit" value="submit">Submit</button>
       </form>
     )
   }
 }
 
+const mapState = state => {
+  return {
+    user: state.user,
+    topics: state.topics,
+  }
+}
+
 const mapDispatch = dispatch => ({
-  addNewCampus: campus => dispatch(addCampus(campus))
+  addNewTopic: topic => dispatch(addTopic(topic)),
+  loadUser: () => dispatch(me()),
+  fetchAllTopics: () => dispatch(fetchAllTopics()),
 })
 
-export default connect(null, mapDispatch)(NewCampusForm)
+export default connect(mapState, mapDispatch)(NewTopicForm)
