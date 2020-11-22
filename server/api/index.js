@@ -3,6 +3,7 @@ module.exports = router;
 const isAdminUser = require("./middleware/is-admin-user");
 
 router.use("/users", require("./users"));
+router.use("/topics", require("./topics"));
 
 router.use(isAdminUser);
 

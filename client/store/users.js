@@ -31,7 +31,7 @@ const deleteAUser = userId => ({
 export const fetchUsers = () => {
   return async dispatch => {
     try {
-      const {data: allUsers} = await axios.get('/api/users-admin')
+      const {data: allUsers} = await axios.get('/api/users')
       dispatch(setUsers(allUsers))
     } catch (err) {
       console.log(err)
@@ -42,7 +42,7 @@ export const fetchUsers = () => {
 export const addUser = user => {
   return async dispatch => {
     try {
-      const {data: newUser} = await axios.post('/api/users-admin', user)
+      const {data: newUser} = await axios.post('/api/users', user)
       dispatch(addNewUser(newUser))
     } catch (err) {
       console.log(err)
@@ -53,7 +53,7 @@ export const addUser = user => {
 export const deleteUser = userId => {
   return async dispatch => {
     try {
-      await axios.delete(`/api/users-admin/${userId}`)
+      await axios.delete(`/api/users/${userId}`)
       dispatch(deleteAUser(userId))
     } catch (err) {
       console.log(err)

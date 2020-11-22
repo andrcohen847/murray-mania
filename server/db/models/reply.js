@@ -2,8 +2,12 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Reply = db.define("reply", {
-  reply: {
-    type: Sequelize.TEXT
+  comment: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 });
 
