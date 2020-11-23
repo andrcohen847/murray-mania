@@ -72,8 +72,9 @@ class MessageBoard extends React.Component {
               <ul>
               {
                   topics.map((topic) => (
-
-                    <li key={topic.id}>{topic.name}</li>
+                    <Link key={topic.id} to={`/messageboard/${topic.id}`}>
+                      <li key={topic.id}>{topic.name}</li>
+                    </Link>
                   ))
 
               }

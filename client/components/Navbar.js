@@ -20,6 +20,9 @@ const NavbarComp = ({ handleClick, isLoggedIn, id }) => {
               <NavLink to="/games" activeClassName="selected">
                 <button>Games</button>
               </NavLink>
+              <NavLink to="/soundlab" activeClassName="selected">
+                <button>SoundLab</button>
+              </NavLink>
               <NavLink to={`/userprofile/${id}`} activeClassName="selected">
                 <button>Edit Profile</button>
               </NavLink>
@@ -32,6 +35,9 @@ const NavbarComp = ({ handleClick, isLoggedIn, id }) => {
               </NavLink>
               <NavLink to="/signup" activeClassName="selected">
                 <button>Signup</button>
+              </NavLink>
+              <NavLink to="/soundlab" activeClassName="selected">
+                <button>SoundLab</button>
               </NavLink>
               <NavLink to="/games">
                 <button>Games</button>

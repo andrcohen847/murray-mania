@@ -1,0 +1,12 @@
+{
+  "urls": [
+    "theme.webm",
+    "theme.mp3"
+  ],
+  "sprite": {
+    "background_music": [
+      0,
+      257149.38775510204
+    ]
+  }
+}

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { Login, Signup, Home, Games, MessageBoard, UserProfile } from "./components";
+import { Login, Signup, Home, Games, MessageBoard, UserProfile, Topic, SoundLab } from "./components";
 
 import { me } from "./store";
 import GroundHogHome from "./components/gamesfolder/groundhogfolder/GroundHogGame";
@@ -28,6 +28,8 @@ class Routes extends Component {
         <Route exact path="/userprofile/:userId" component={UserProfile} />
         <Route exact path="/games" component={Games} />
         <Route exact path="/messageboard" component={MessageBoard} />
+        <Route exact path="/messageboard/:topicId" component={Topic} />
+        <Route exact path="/soundlab" component={SoundLab} />
         <Route
           exact
           path="/games/gatherthegroundhog"

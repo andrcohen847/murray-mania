@@ -10,3 +10,5 @@ export { Login, Signup } from "./AuthForm";
 export { default as Games } from "./Games";
 export { default as MessageBoard } from "./MessageBoard"
 export {default as UserProfile} from "./UserProfile"
+export {default as Topic} from "./Topic"
+export {default as SoundLab} from "./SoundLab"

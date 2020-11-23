@@ -1,5 +1,5 @@
 import React from 'react'
-import { addTopic, me, fetchAllTopics } from '../store'
+import { addTopic, me, fetchAllTopics, addPost } from '../store'
 import { connect } from 'react-redux'
 
 export class NewTopicForm extends React.Component {
@@ -7,7 +7,10 @@ export class NewTopicForm extends React.Component {
     super()
     this.state = {
       name: '',
-      userId: ''
+      userId: '',
+      posts: [],
+      postName: '',
+      postDescription: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -15,6 +18,7 @@ export class NewTopicForm extends React.Component {
 
   componentDidMount() {
     this.props.loadUser()
+    this.props.fetchAllTopics()
   }
 
   handleChange(event) {
@@ -23,6 +27,7 @@ export class NewTopicForm extends React.Component {
   }
 
   handleSubmit(event) {
+
     event.preventDefault()
     this.props.addNewTopic({
       name: this.state.name,
@@ -30,13 +35,25 @@ export class NewTopicForm extends React.Component {
       posts: []
     })
 
+    this.props.addNewPost({
+      name: this.state.postName,
+      description: this.state.postDescription,
+      userId: this.props.user.id,
+      topicId: (this.props.topics.length) + 1
+    })
+
+
     this.props.fetchAllTopics()
+
 
     this.setState({
       name: '',
       userId: '',
-      posts: []
+      posts: [],
+      postName: '',
+      postDescription: '',
     })
+
 }
 
   render() {
@@ -45,6 +62,14 @@ export class NewTopicForm extends React.Component {
         <label htmlFor="name">
           Topic Name:
           <input onChange={this.handleChange} value={this.state.name} name="name" type="text" required />
+        </label>
+        <label htmlFor="name">
+          Post Name:
+          <input onChange={this.handleChange} value={this.state.postName} name="postName" type="text" required />
+        </label>
+          <label htmlFor="postDescription">
+          Post Description:
+          <input onChange={this.handleChange} value={this.state.postDescription} name="postDescription" type="text" required />
         </label>
         <button className="submit" type="submit" value="submit">Submit</button>
       </form>
@@ -61,6 +86,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => ({
   addNewTopic: topic => dispatch(addTopic(topic)),
+  addNewPost: post => dispatch(addPost(post)),
   loadUser: () => dispatch(me()),
   fetchAllTopics: () => dispatch(fetchAllTopics()),
 })
